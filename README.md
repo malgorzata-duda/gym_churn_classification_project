@@ -1,8 +1,8 @@
 # Gym Customer Churn Prediction
-# Comparison of classification methods: decision tree, random forest, kNN and logistic regression
+# Comparison of classification methods: decision tree, random forest, XGBoost, kNN and logistic regression
 
 ## Project Overview
-The aim of this project is to create a classification model, to predict **gym customer churn** (identifying customers who are likely to resign in the upcoming month). The project includes a comparison of 4 classification models: decision tree, random forest, k-nearest neighbors and logistic regression. Then the best model is selected, taking into consideration model's performance on train and test dataset as well as its complexity and interpretability. Finally, SHAP profiles are presented in order to illustrate how the model makes its predictions. 
+The aim of this project is to create a classification model, to predict **gym customer churn** (identifying customers who are likely to resign in the upcoming month). The project includes a comparison of 5 classification models: decision tree, random forest, XGBoost, k-nearest neighbors and logistic regression. Then the best model is selected, taking into consideration model's performance on train and test dataset as well as its complexity and interpretability. Finally, SHAP profiles are presented in order to illustrate how the model makes its predictions. 
 
 ## Data
 
@@ -17,20 +17,20 @@ License: CC BY-NC-SA 4.0
 ### Data Preprocessing
 The dataset used in the analysis exhibited significant class imbalance, included outliers as well as multicollinear variables. Therefore, preprocessing of the dataset involved: feature selection, winsorization and undersampling. 
 
-Altough some of the models were robust to outliers (decision tree and random forest models), kNN and logistic regression models are implemented, it was decided that outliers will be brought to the nearest non-outlier values (winsorization), regardless of the model used. 
+Altough some of the models were robust to outliers (tree-based models), kNN and logistic regression models are implemented, it was decided that outliers will be brought to the nearest non-outlier values (winsorization), regardless of the model used. 
 To balance the dataset, an undersampling technique was used (as the standard SMOTE method cannot be applied on categorical variables). Given that the majority class consists of non-churning customers and the purpose of the model is to identify churning customers, reducing the size of the majority class did not negatively affect the model's performance. 
 
 ## Objectives
 The purpose of the project was to build a classification model to predict customer churn at the gym. The most important aspect was a successful identification of the potentially resigning customers, so high recall for the churn class was prioritized in the modelling process. Another aim of the analysis was to identify the characteristics of the churning and loyal customers. 
 
 ## Methodology
-The project compares 4 classification methods: Decision Tree, Random Forest, k-Nearest Neighbors and Logistic Regression. In each case a fine tuning of the parameters was conducted. The metric maximized in the model selection was **recall** - due to the fact that the main purpose of the model is a successful identification of churning customers. Each of the built models allowed for a different degree of interpretability and feature importance analysis. Final model was analyzed using SHAP profiles, both individual and global. 
+The project compares 5 classification methods: Decision Tree, Random Forest, XGBoost, k-Nearest Neighbors and Logistic Regression. In each case a fine tuning of the parameters was conducted. The metric maximized in the model selection was **recall** - due to the fact that the main purpose of the model is a successful identification of churning customers. Each of the built models allowed for a different degree of interpretability and feature importance analysis. Final model was analyzed using SHAP profiles, both individual and global. 
 
 ## Results
 
 ### Model Performance and Final Model Selection
 
-<img width="1134" height="372" alt="result_comparison" src="https://github.com/user-attachments/assets/3950570c-a137-4853-83c1-538ae4ee0466" />
+<img width="1134" height="372" alt="result_comparison_5" src="https://github.com/user-attachments/assets/1008d63b-de1a-4f81-9bf6-2c1dbc10ad18" />
 
 Each of the trained models exhibited high predictive abilities, both on the train and the test dataset (accuracy and recall values around 0.8-0.9). The best-performing model (based on the test recall metric) was the **logistic regression model**, which allowed to make predictions with **accuracy over 0.85 and recall over 0.95** on both train and test datasets. 
 
